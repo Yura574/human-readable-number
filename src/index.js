@@ -74,7 +74,6 @@ module.exports = function toReadable(number) {
         let d = number % 100 // откидываем сотню
         let a = d - d % 10 // получаем десятки
         let b = d - a // получаем еденицы
-        let f = a + b // складываем десятки с еденицами
         if (a === 0 && b === 0) { // 100, 200, 300 ...
             return numberString(c) + ' ' + 'hundred'
         }
@@ -82,7 +81,7 @@ module.exports = function toReadable(number) {
             return numberString(c) + ' ' + 'hundred' + ' ' + numberString(b)
         }
         if (a === 10) { // 912, 619, 112, 715 ...
-            return numberString(c) + ' ' + 'hundred' + ' ' + numberString(f)
+            return numberString(c) + ' ' + 'hundred' + ' ' + numberString(d)
         }
         if (b === 0) { // 820, 910, 110, 730 ...
             return numberString(c) + ' ' + 'hundred' + ' ' + numberString(a)
